@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shivaay Event Management</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+color:white;
+background:url("background.png") center/cover fixed no-repeat;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:-1;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+height:70px;
+background:black;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 8%;
+z-index:1000;
+}
+
+.logo .blue{
+color:#00C2D1;
+font-size:24px;
+font-weight:700;
+}
+
+.logo .white{
+color:white;
+font-size:18px;
+font-weight:700;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#00C2D1;
+}
+
+/* HERO */
+
+.hero{
+margin-top:70px;
+height:90vh;
+background:url("hero.jpeg") center/cover no-repeat;
+display:flex;
+justify-content:center;
+align-items:flex-end;
+padding-bottom:40px;  /* increased from 60 → 120 */
+}
+
+.btn{
+padding:12px 32px;
+border-radius:30px;
+border:2px solid #00eaff;
+background:linear-gradient(135deg, #00C2D1, #00eaff, #0097a7);
+color:#000;
+font-weight:bold;
+letter-spacing:1px;
+cursor:pointer;
+
+/* 3D effect */
+box-shadow:
+0 6px 15px rgba(0,194,209,0.5),
+inset 0 2px 4px rgba(255,255,255,0.4);
+
+transition:all 0.3s ease;
+}
+
+/* hover effect */
+.btn:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:
+0 10px 20px rgba(0,194,209,0.7),
+inset 0 2px 6px rgba(255,255,255,0.5);
+}
+
+/* click effect */
+.btn:active{
+transform:translateY(2px);
+box-shadow:
+0 4px 10px rgba(0,194,209,0.5);
+}
+/* SECTIONS */
+
+section{
+padding:40px 8%;
+text-align:center;
+}
+
+h2{
+font-size:38px;
+color:#00C2D1;
+margin-bottom:40px;
+}
+
+/* SLIDER */
+
+.slider-wrapper{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:15px;
+}
+
+.slider{
+width:85%;
+max-width:1100px;
+overflow:hidden;
+border-radius:10px;
+}
+
+.slides{
+display:flex;
+transition:transform 0.6s ease;
+}
+
+.slides img{
+width:100%;
+flex-shrink:0;
+height:450px;
+object-fit:cover;
+}
+
+.arrow{
+font-size:40px;
+cursor:pointer;
+}
+
+.dots{
+text-align:center;
+margin-top:20px;
+}
+
+.dot{
+height:12px;
+width:12px;
+margin:0 6px;
+background:#777;
+border-radius:50%;
+display:inline-block;
+cursor:pointer;
+}
+
+.dot.active{
+background:#00C2D1;
+}
+
+/* FORM */
+
+form{
+max-width:550px;
+margin:auto;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+form input,
+form textarea,
+form select{
+width:100%;
+padding:12px;
+border:none;
+border-radius:6px;
+font-size:15px;
+}
+
+form select{
+background:white;
+color:black;
+}
+
+form label{
+text-align:left;
+font-size:14px;
+}
+
+/* SERVICE CHECKBOXES */
+
+.services-checkbox{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:15px;
+margin-top:10px;
+}
+
+.services-checkbox label{
+background:white;
+color:black;
+padding:12px 16px;
+border-radius:6px;
+border:1px solid #ccc;
+display:flex;
+justify-content:space-between;
+align-items:center;
+cursor:pointer;
+}
+
+.services-checkbox input{
+width:18px;
+height:18px;
+cursor:pointer;
+}
+
+/* CONTACT */
+
+.contact-container{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:50px;
+flex-wrap:wrap;
+text-align:left;
+}
+
+.contact-img img{
+width:350px;
+border-radius:10px;
+}
+
+.contact-info{
+max-width:500px;
+}
+
+.contact-item{
+margin:15px 0;
+font-size:18px;
+}
+
+.contact-item a{
+color:#00C2D1;
+text-decoration:none;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero{
+height:70vh;
+}
+
+.slides img{
+height:250px;
+}
+
+.contact-container{
+flex-direction:column;
+text-align:center;
+}
+
+.contact-img img{
+width:250px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+<span class="blue">SHIVAAY</span>
+<span class="white"> EVENT MANAGEMENT</span>
+</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#booking">Book</a></li>
+<li><a href="#contact">Contact Us</a></li>
+</ul>
+
+</nav>
+
+<div class="hero">
+<button class="btn" onclick="scrollToBooking()">BOOK NOW</button>
+</div>
+
+<section id="about">
+
+<h2>About</h2>
+
+<div class="slider-wrapper">
+
+<div class="arrow" onclick="prevSlide()">❮</div>
+
+<div class="slider" id="slider">
+
+<div class="slides" id="slides">
+
+<img src="about1.png">
+<img src="about2.png">
+<img src="about3.png">
+<img src="about4.png">
+
+</div>
+
+</div>
+
+<div class="arrow" onclick="nextSlide()">❯</div>
+
+</div>
+
+<div class="dots" id="dots"></div>
+
+</section>
+
+<section id="booking">
+
+<h2>Book Your Event</h2>
+
+<form onsubmit="submitForm(event)">
+
+<input type="text" id="name" placeholder="Name" required>
+
+<input type="tel" id="mobile"  placeholder="Mobile Number" required>
+
+<textarea id="address" placeholder="Address" rows="3" required></textarea>
+
+<label>Event Date</label>
+<input type="date" id="date" required>
+
+<label>Event Location</label>
+<input type="text" id="location"  placeholder="Event Location" required>
+
+<label>Type of Event</label>
+
+<input 
+type="text" 
+id="eventType"
+placeholder="e.g., Wedding, Haldi + Mehendi, College Fest, Corporate Event" 
+required
+>
+
+<label>Service Required</label>
+
+<div class="services-checkbox">
+
+<label><span>Stage Setup</span><input type="checkbox" name="service" value="Stage Setup"></label>
+
+<label><span>DJ</span><input type="checkbox" name="service" value="DJ"></label>
+
+<label><span>Dance Choreography</span><input type="checkbox" name="service" value="Dance Choreography"></label>
+
+<label><span>Dancers</span><input type="checkbox" name="service" value="Dancers"></label>
+
+<label><span>Lighting</span><input type="checkbox" name="service" value="Lighting"></label>
+
+<label><span>Photography / Videography</span><input type="checkbox" name="service" value="Photography / Videography"></label>
+
+<label><span>Welcome Dance</span><input type="checkbox" name="service" value="Welcome Dance"></label>
+
+<label><span>Anchor / Emcee</span><input type="checkbox" name="service" value="Anchor / Emcee"></label>
+
+<label>
+<span>Other</span>
+<input type="checkbox" id="serviceOtherCheck" onclick="toggleServiceOther()">
+</label>
+
+</div>
+
+<input 
+type="text" 
+id="serviceOther" 
+placeholder="Please specify other service"
+style="display:none; margin-top:10px;"
+>
+
+<button class="btn">Submit</button>
+
+</form>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<div class="contact-container">
+
+<div class="contact-img">
+<img src="dhanush.jpeg">
+</div>
+
+<div class="contact-info">
+
+<div class="contact-item">
+📧 Email :
+<a href="mailto:shivaayeventmanagement2026@gmail.com">
+shivaayeventmanagement2026@gmail.com
+</a>
+</div>
+
+<div class="contact-item">
+📞 Phone :
+<a href="tel:+918179096936">
++91 8179096936
+</a>
+</div>
+
+<div class="contact-item">
+📷 Instagram :
+<a href="https://instagram.com/shivaay_eventmanagement" target="_blank">
+@shivaay_eventmanagement
+</a>
+</div>
+
+<div class="contact-item">
+▶ YouTube :
+<a href="https://youtube.com/@shivaayeventmanagement" target="_blank">
+Shivaay Event Management India
+</a>
+</div>
+
+<div class="contact-item">
+📍 Location :
+<a href="https://maps.app.goo.gl/bQvnLQkrPWARjXb79" target="_blank">
+View on Google Maps
+</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+
+let index=0;
+
+const slides=document.getElementById("slides");
+const totalSlides=slides.children.length;
+const dotsContainer=document.getElementById("dots");
+
+for(let i=0;i<totalSlides;i++){
+const dot=document.createElement("span");
+dot.classList.add("dot");
+dot.onclick=()=>goToSlide(i);
+dotsContainer.appendChild(dot);
+}
+
+const dots=document.querySelectorAll(".dot");
+
+function updateSlider(){
+slides.style.transform=`translateX(-${index*100}%)`;
+dots.forEach(dot=>dot.classList.remove("active"));
+dots[index].classList.add("active");
+}
+
+function nextSlide(){
+clearInterval(autoSlide);
+index=(index+1)%totalSlides;
+updateSlider();
+}
+
+function prevSlide(){
+clearInterval(autoSlide);
+index=(index-1+totalSlides)%totalSlides;
+updateSlider();
+}
+
+function goToSlide(i){
+clearInterval(autoSlide);
+index=i;
+updateSlider();
+}
+
+let autoSlide=setInterval(()=>{
+index=(index+1)%totalSlides;
+updateSlider();
+},7000);
+
+updateSlider();
+
+function scrollToBooking(){
+document.getElementById("booking").scrollIntoView({behavior:"smooth"});
+}
+
+function submitForm(e){
+e.preventDefault();
+
+let name = document.getElementById("name").value;
+let mobile = document.getElementById("mobile").value;
+let address = document.getElementById("address").value;
+let date = document.getElementById("date").value;
+let location = document.getElementById("location").value;
+let eventType = document.getElementById("eventType").value;
+
+// get selected services
+let services = [];
+
+document.querySelectorAll("input[name='service']:checked").forEach(el=>{
+services.push(el.value);
+});
+
+// include "Other" text if checked
+let otherCheck = document.getElementById("serviceOtherCheck");
+let otherInput = document.getElementById("serviceOther");
+
+if(otherCheck && otherCheck.checked && otherInput.value){
+services.push(otherInput.value);
+}
+
+let message = 
+" *New Event Booking* \n\n" +
+"*Name:* " + name + "\n" +
+"*Mobile:* " + mobile + "\n" +
+"*Address:* " + address + "\n" +
+"*Event Date:* " + date + "\n" +
+"*Event Location:* " + location + "\n" +
+"*Event Type:* " + eventType + "\n" +
+"*Services:* " + services.join(", ");
+
+let whatsappNumber = "918179096936"; // your number without +
+
+let url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+window.open(url, "_blank");
+}
+function toggleEventOther(){
+
+let eventType = document.getElementById("eventType").value;
+let otherBox = document.getElementById("eventOther");
+
+if(eventType === "Other"){
+otherBox.style.display = "block";
+}else{
+otherBox.style.display = "none";
+}
+
+}
+
+function toggleServiceOther(){
+
+let checkbox = document.getElementById("serviceOtherCheck");
+let otherBox = document.getElementById("serviceOther");
+
+if(checkbox.checked){
+otherBox.style.display = "block";
+}else{
+otherBox.style.display = "none";
+}
+
+}
+</script>
+
+</body>
+</html>
