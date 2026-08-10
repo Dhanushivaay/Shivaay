@@ -138,8 +138,22 @@ color:#00C2D1;
 margin-bottom:40px;
 }
 
+.gallery{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  gap:10px;
+}
+.gallery img{
+  flex:0 0 100%;
+  scroll-snap-align:center;
+  width:100%;
+  height:auto;
+  border-radius:10px;
+}
+  
 /* SLIDER */
-
+/* 
 .slider-wrapper{
 display:flex;
 align-items:center;
@@ -162,8 +176,8 @@ transition:transform 0.6s ease;
 .slides img{
   width:100%;
   height:auto;
-  aspect-ratio: 4/3; /* or 1/1, whatever matches most of  photos */
-  object-fit:cover; /* or contain if you never want any cropping */
+  aspect-ratio: 4/3;
+  object-fit:cover; 
 }
 
 
@@ -189,7 +203,7 @@ cursor:pointer;
 
 .dot.active{
 background:#00C2D1;
-}
+} */
 
 /* FORM */
 
@@ -329,7 +343,15 @@ width:250px;
 
 <h2>About</h2>
 
-<div class="slider-wrapper">
+<div class="gallery">
+  <img src="about1.png">
+  <img src="about2.png">
+  <img src="about3.PNG">
+  <img src="about4.png">
+</div>
+
+  
+<!-- <div class="slider-wrapper">
 
 <div class="arrow" onclick="prevSlide()">❮</div>
 
@@ -350,7 +372,7 @@ width:250px;
 
 </div>
 
-<div class="dots" id="dots"></div>
+<div class="dots" id="dots"></div> -->
 
 </section>
 
