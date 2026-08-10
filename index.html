@@ -159,10 +159,10 @@ transition:transform 0.6s ease;
 }
 
 .slides img{
-width:100%;
-flex-shrink:0;
-height:450px;
-object-fit:cover;
+  width:100%;
+  height:auto;
+  aspect-ratio: 4/3; /* or 1/1, whatever matches most of your photos */
+  object-fit:cover; /* or contain if you never want any cropping */
 }
 
 
