@@ -196,15 +196,13 @@ scrollbar-width:none; /* firefox */
 display:none; /* chrome/safari */
 }
 
-.gallery img{
-flex:0 0 84%;
-min-width:0;
-width:84%;
-max-width:800px;
-scroll-snap-align:center;
-border-radius:10px;
-height:420px;
-object-fit:cover;
+.gallery img {
+    flex: 0 0 88%;
+    width: 88%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    scroll-snap-align: center;
 }
 
 .gallery-arrow{
@@ -415,11 +413,6 @@ section{
 scroll-margin-top:75px;
 }
 
-.gallery img{
-height:250px;
-flex:0 0 88%;
-width:88%
-}
 
 .gallery-arrow{
 display:none; /* rely on swipe on touch devices */
