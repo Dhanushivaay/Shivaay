@@ -111,15 +111,25 @@ color:var(--logo-color);
 
 /* HERO */
 
-.hero{
-margin-top:84px; /* matches actual nav height (~74px) + small breathing room */
-height:clamp(380px, 65vh, 700px);
-background:url("hero.jpeg") center 40%/cover no-repeat;
+.hero {
+    margin-top: 84px;
+    aspect-ratio: 2048 / 993;
+    background: url("hero.jpeg") center center / 100% 100% no-repeat;
 }
 
-.hero-cta{
-text-align:center;
-padding:34px 8% 10px;
+.hero-cta {
+    text-align: center;
+    padding: 15px 8% 10px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        aspect-ratio: 2048 / 993;
+    }
+
+    .hero-cta {
+        padding: 12px 8% 10px;
+    }
 }
 
 .btn{
