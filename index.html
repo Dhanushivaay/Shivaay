@@ -316,32 +316,40 @@ cursor:pointer;
 
 /* CONTACT */
 
-.contact-container{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:50px;
-flex-wrap:wrap;
-text-align:left;
-}
+@media (max-width: 768px) {
 
-.contact-img img{
-width:350px;
-border-radius:10px;
-}
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 25px;
+        text-align: center;
+        width: 100%;
+    }
 
-.contact-info{
-max-width:500px;
-}
+    .contact-img {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 
-.contact-item{
-margin:15px 0;
-font-size:18px;
-}
+    .contact-img img {
+        width: 85%;
+        max-width: 350px;
+        height: auto;
+    }
 
-.contact-item a{
-color:var(--logo-color);
-text-decoration:none;
+    .contact-info {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .contact-item {
+        margin: 15px 0;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
 }
 
 /* WHATSAPP FLOATING BUTTON */
@@ -416,15 +424,6 @@ scroll-margin-top:75px;
 
 .gallery-arrow{
 display:none; /* rely on swipe on touch devices */
-}
-
-.contact-container{
-flex-direction:column;
-text-align:center;
-}
-
-.contact-img img{
-width:250px;
 }
 
 }
